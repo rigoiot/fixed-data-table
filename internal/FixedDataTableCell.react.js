@@ -1,3 +1,7 @@
+'use strict';
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -10,10 +14,6 @@
  * @typechecks
  */
 
-'use strict';
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
 var FixedDataTableCellDefault = require('./FixedDataTableCellDefault.react');
 var FixedDataTableHelper = require('./FixedDataTableHelper');
 var React = require('./React');
@@ -24,6 +24,7 @@ var DIR_SIGN = FixedDataTableHelper.DIR_SIGN;
 
 var PropTypes = React.PropTypes;
 
+
 var DEFAULT_PROPS = {
   align: 'left',
   highlighted: false
@@ -31,6 +32,7 @@ var DEFAULT_PROPS = {
 
 var FixedDataTableCell = React.createClass({
   displayName: 'FixedDataTableCell',
+
 
   /**
    * PropTypes are disabled in this component, because having them on slows
@@ -79,11 +81,9 @@ var FixedDataTableCell = React.createClass({
   shouldComponentUpdate: function shouldComponentUpdate(nextProps) {
     return !nextProps.isScrolling || this.props.rowIndex !== nextProps.rowIndex;
   },
-
   getDefaultProps: function getDefaultProps() /*object*/{
     return DEFAULT_PROPS;
   },
-
   render: function render() /*object*/{
     var _props = this.props;
     var height = _props.height;
@@ -161,7 +161,6 @@ var FixedDataTableCell = React.createClass({
       content
     );
   },
-
   _onColumnResizerMouseDown: function _onColumnResizerMouseDown( /*object*/event) {
     this.props.onColumnResize(this.props.left, this.props.width, this.props.minWidth, this.props.maxWidth, this.props.columnKey, event);
   }

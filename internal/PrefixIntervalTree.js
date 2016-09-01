@@ -13,9 +13,9 @@
 
 'use strict';
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var invariant = require('./invariant');
 
@@ -57,7 +57,12 @@ function ceilLog2(x) {
  * entire array.
  */
 
-var PrefixIntervalTree = (function () {
+var PrefixIntervalTree = function () {
+
+  /**
+   * Half the size of the heap. It is also the number of non-leaf nodes, and the
+   * index of the first element in the heap. Always a power of 2.
+   */
   function PrefixIntervalTree(xs) {
     _classCallCheck(this, PrefixIntervalTree);
 
@@ -74,6 +79,15 @@ var PrefixIntervalTree = (function () {
       this._heap[i] = this._heap[2 * i] + this._heap[2 * i + 1];
     }
   }
+
+  /**
+   * Binary heap
+   */
+
+  /**
+   * Number of elements in the array
+   */
+
 
   _createClass(PrefixIntervalTree, [{
     key: 'set',
@@ -105,6 +119,7 @@ var PrefixIntervalTree = (function () {
     /**
      * Returns the sum get(0) + get(1) + ... + get(end - 1).
      */
+
   }, {
     key: 'sumUntil',
     value: function sumUntil(end) {
@@ -128,6 +143,7 @@ var PrefixIntervalTree = (function () {
     /**
      * Returns the sum get(0) + get(1) + ... + get(inclusiveEnd).
      */
+
   }, {
     key: 'sumTo',
     value: function sumTo(inclusiveEnd) {
@@ -138,6 +154,7 @@ var PrefixIntervalTree = (function () {
     /**
      * Returns the sum get(begin) + get(begin + 1) + ... + get(end - 1).
      */
+
   }, {
     key: 'sum',
     value: function sum(begin, end) {
@@ -149,6 +166,7 @@ var PrefixIntervalTree = (function () {
      * Returns the smallest i such that 0 <= i <= size and sumUntil(i) <= t, or
      * -1 if no such i exists.
      */
+
   }, {
     key: 'greatestLowerBound',
     value: function greatestLowerBound(t) {
@@ -178,6 +196,7 @@ var PrefixIntervalTree = (function () {
      * Returns the smallest i such that 0 <= i <= size and sumUntil(i) < t, or
      * -1 if no such i exists.
      */
+
   }, {
     key: 'greatestStrictLowerBound',
     value: function greatestStrictLowerBound(t) {
@@ -207,6 +226,7 @@ var PrefixIntervalTree = (function () {
      * Returns the smallest i such that 0 <= i <= size and t <= sumUntil(i), or
      * size + 1 if no such i exists.
      */
+
   }, {
     key: 'leastUpperBound',
     value: function leastUpperBound(t) {
@@ -217,6 +237,7 @@ var PrefixIntervalTree = (function () {
      * Returns the smallest i such that 0 <= i <= size and t < sumUntil(i), or
      * size + 1 if no such i exists.
      */
+
   }, {
     key: 'leastStrictUpperBound',
     value: function leastStrictUpperBound(t) {
@@ -240,19 +261,6 @@ var PrefixIntervalTree = (function () {
   }]);
 
   return PrefixIntervalTree;
-})();
+}();
 
 module.exports = PrefixIntervalTree;
-
-/**
- * Number of elements in the array
- */
-
-/**
- * Half the size of the heap. It is also the number of non-leaf nodes, and the
- * index of the first element in the heap. Always a power of 2.
- */
-
-/**
- * Binary heap
- */

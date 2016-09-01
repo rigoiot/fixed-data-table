@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Copyright 2004-present Facebook. All Rights Reserved.
  *
@@ -43,8 +45,6 @@
  *  another copy of "event || window.event".
  *
  */
-
-'use strict';
 
 var _populated = false;
 

@@ -19,7 +19,7 @@ var getVendorPrefixedName = require('./getVendorPrefixedName');
 var TRANSFORM = getVendorPrefixedName('transform');
 var BACKFACE_VISIBILITY = getVendorPrefixedName('backfaceVisibility');
 
-var translateDOMPositionXY = (function () {
+var translateDOMPositionXY = function () {
   if (BrowserSupportCore.hasCSSTransforms()) {
     var ua = global.window ? global.window.navigator.userAgent : 'UNKNOWN';
     var isSafari = /Safari\//.test(ua) && !/Chrome\//.test(ua);
@@ -43,6 +43,6 @@ var translateDOMPositionXY = (function () {
       style.top = y + 'px';
     };
   }
-})();
+}();
 
 module.exports = translateDOMPositionXY;

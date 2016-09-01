@@ -19,15 +19,15 @@
  * @return {boolean}
  */
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function defaultComparator(a, b) {
   return a < b;
 }
 
-var Heap = (function () {
+var Heap = function () {
   function Heap(items, comparator) {
     _classCallCheck(this, Heap);
 
@@ -41,6 +41,7 @@ var Heap = (function () {
    * @return {boolean}
    */
 
+
   _createClass(Heap, [{
     key: 'empty',
     value: function empty() {
@@ -50,6 +51,7 @@ var Heap = (function () {
     /*
      * @return {*}
      */
+
   }, {
     key: 'pop',
     value: function pop() {
@@ -73,6 +75,7 @@ var Heap = (function () {
     /*
      * @param {*} item
      */
+
   }, {
     key: 'push',
     value: function push(item) {
@@ -83,6 +86,7 @@ var Heap = (function () {
     /*
      * @return {number}
      */
+
   }, {
     key: 'size',
     value: function size() {
@@ -92,6 +96,7 @@ var Heap = (function () {
     /*
      * @return {*}
      */
+
   }, {
     key: 'peek',
     value: function peek() {
@@ -112,6 +117,7 @@ var Heap = (function () {
     /*
      * @parent {number} index
      */
+
   }, {
     key: '_bubbleUp',
     value: function _bubbleUp(index) {
@@ -135,6 +141,7 @@ var Heap = (function () {
     /*
      * @parent {number} index
      */
+
   }, {
     key: '_sinkDown',
     value: function _sinkDown(index) {
@@ -174,6 +181,6 @@ var Heap = (function () {
   }]);
 
   return Heap;
-})();
+}();
 
 module.exports = Heap;

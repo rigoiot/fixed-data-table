@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -14,8 +16,6 @@
  * @typechecks
  */
 
-'use strict';
-
 var DOMMouseMoveTracker = require('./DOMMouseMoveTracker');
 var Locale = require('./Locale');
 var React = require('./React');
@@ -25,6 +25,7 @@ var clamp = require('./clamp');
 var cx = require('./cx');
 
 var PropTypes = React.PropTypes;
+
 
 var FixedDataTableColumnResizeHandle = React.createClass({
   displayName: 'FixedDataTableColumnResizeHandle',
@@ -90,7 +91,6 @@ var FixedDataTableColumnResizeHandle = React.createClass({
       cursorDelta: 0
     };
   },
-
   componentWillReceiveProps: function componentWillReceiveProps( /*object*/newProps) {
     if (newProps.initialEvent && !this._mouseMoveTracker.isDragging()) {
       this._mouseMoveTracker.captureMouseMoves(newProps.initialEvent);
@@ -100,16 +100,13 @@ var FixedDataTableColumnResizeHandle = React.createClass({
       });
     }
   },
-
   componentDidMount: function componentDidMount() {
     this._mouseMoveTracker = new DOMMouseMoveTracker(this._onMove, this._onColumnResizeEnd, document.body);
   },
-
   componentWillUnmount: function componentWillUnmount() {
     this._mouseMoveTracker.releaseMouseMoves();
     this._mouseMoveTracker = null;
   },
-
   render: function render() /*object*/{
     var style = {
       width: this.state.width,
@@ -135,7 +132,6 @@ var FixedDataTableColumnResizeHandle = React.createClass({
       })
     );
   },
-
   _onMove: function _onMove( /*number*/deltaX) {
     if (Locale.isRTL()) {
       deltaX = -deltaX;
@@ -150,7 +146,6 @@ var FixedDataTableColumnResizeHandle = React.createClass({
       cursorDelta: newWidth
     });
   },
-
   _onColumnResizeEnd: function _onColumnResizeEnd() {
     this._mouseMoveTracker.releaseMouseMoves();
     this.props.onColumnResizeEnd(this.state.width, this.props.columnKey);

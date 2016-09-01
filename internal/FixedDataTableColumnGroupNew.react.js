@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -10,8 +12,6 @@
  * @typechecks
  */
 
-'use strict';
-
 var React = require('./React');
 
 var PropTypes = React.PropTypes;
@@ -19,6 +19,7 @@ var PropTypes = React.PropTypes;
 /**
  * Component that defines the attributes of a table column group.
  */
+
 var FixedDataTableColumnGroup = React.createClass({
   displayName: 'FixedDataTableColumnGroup',
 
@@ -65,7 +66,6 @@ var FixedDataTableColumnGroup = React.createClass({
       fixed: false
     };
   },
-
   render: function render() {
     if (process.env.NODE_ENV !== 'production') {
       throw new Error('Component <FixedDataTableColumnGroup /> should never render');

@@ -1,3 +1,7 @@
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -8,8 +12,6 @@
  *
  * @providesModule cx
  */
-
-'use strict';
 
 var slashReplaceRegex = /\//g;
 var cache = {};
@@ -40,7 +42,7 @@ function getClassName(className) {
  */
 function cx(classNames) {
   var classNamesArray;
-  if (typeof classNames == 'object') {
+  if ((typeof classNames === 'undefined' ? 'undefined' : _typeof(classNames)) == 'object') {
     classNamesArray = Object.keys(classNames).filter(function (className) {
       return classNames[className];
     });

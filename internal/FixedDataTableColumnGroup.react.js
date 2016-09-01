@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -16,8 +18,6 @@
  * When ready, remove this file and rename the providesModule in
  * FixedDataTableColumnNew.react
  */
-
-'use strict';
 
 var React = require('./React');
 

@@ -1,3 +1,9 @@
+'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -9,12 +15,6 @@
  * @providesModule FixedDataTableCellDefault.react
  * @typechecks
  */
-
-'use strict';
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 var React = require('./React');
 
@@ -46,6 +46,7 @@ var PropTypes = React.PropTypes;
  * );
  * ```
  */
+
 var FixedDataTableCellDefault = React.createClass({
   displayName: 'FixedDataTableCellDefault',
 
@@ -75,8 +76,10 @@ var FixedDataTableCellDefault = React.createClass({
     var style = _props.style;
     var className = _props.className;
     var children = _props.children;
+    var columnKey = _props.columnKey;
+    var rowIndex = _props.rowIndex;
 
-    var props = _objectWithoutProperties(_props, ['height', 'width', 'style', 'className', 'children']);
+    var props = _objectWithoutProperties(_props, ['height', 'width', 'style', 'className', 'children', 'columnKey', 'rowIndex']);
 
     var innerStyle = _extends({
       height: height,

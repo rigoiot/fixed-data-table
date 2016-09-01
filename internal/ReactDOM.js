@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -8,7 +10,5 @@
  *
  * @providesModule ReactDOM
  */
-
-'use strict';
 
 module.exports = require('react-dom');

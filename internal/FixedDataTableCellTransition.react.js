@@ -1,3 +1,7 @@
+'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -17,12 +21,9 @@
  * FixedDataTableCellNew.react and dependency in FixedDataTableCellGroup.react
  */
 
-'use strict';
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var React = require('./React');
 var PropTypes = React.PropTypes;
+
 
 var cx = require('./cx');
 var joinClasses = require('./joinClasses');
@@ -32,6 +33,7 @@ var CellDefault = require('./FixedDataTableCellDefault.react');
 
 var TransitionCell = React.createClass({
   displayName: 'TransitionCell',
+
 
   propTypes: {
     label: PropTypes.string, // header, footer
@@ -50,7 +52,6 @@ var TransitionCell = React.createClass({
     isHeaderCell: PropTypes.bool, // header
     isFooterCell: PropTypes.bool },
 
-  // footer
   shouldComponentUpdate: function shouldComponentUpdate( /*object*/nextProps) {
     var update = false;
     var rowData;
@@ -78,7 +79,6 @@ var TransitionCell = React.createClass({
 
     return update || !shallowEqual(nextProps, this.props);
   },
-
   _getCellData: function _getCellData(props) {
     var dataKey = props.dataKey;
     if (dataKey == null) {
@@ -110,7 +110,6 @@ var TransitionCell = React.createClass({
       return props.headerDataGetter[dataKey];
     }
   },
-
   _getRowData: function _getRowData(props) {
     if (props.rowGetter) {
       return props.rowGetter(props.rowIndex) || {};
@@ -126,7 +125,6 @@ var TransitionCell = React.createClass({
 
     return {};
   },
-
   render: function render() {
     var props = this.props;
 

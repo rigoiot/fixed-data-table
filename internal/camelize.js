@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -9,8 +11,6 @@
  * @providesModule camelize
  * @typechecks
  */
-
-"use strict";
 
 var _hyphenPattern = /-(.)/g;
 

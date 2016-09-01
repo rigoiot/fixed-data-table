@@ -28,6 +28,7 @@ var ReactChildren = React.Children;
 var PropTypes = React.PropTypes;
 
 // New Table API
+
 var Table = require('./FixedDataTableNew.react');
 var Column = require('./FixedDataTableColumnNew.react');
 var ColumnGroup = require('./FixedDataTableColumnGroupNew.react');
@@ -308,7 +309,6 @@ var TransitionTable = React.createClass({
 
     return state;
   },
-
   _checkDeprecations: function _checkDeprecations() {
     var needsMigration = false;
 
@@ -370,6 +370,7 @@ var TransitionTable = React.createClass({
     return needsMigration;
   },
 
+
   // Wrapper for onRow callbacks, since we don't have rowData at that level.
   _onRowAction: function _onRowAction(props, callback) {
     if (!callback) {
@@ -380,7 +381,6 @@ var TransitionTable = React.createClass({
       callback(e, rowIndex, props.rowGetter && props.rowGetter(rowIndex) || EMPTY_OBJECT);
     };
   },
-
   _transformColumn: function _transformColumn(column, tableProps, key) {
 
     var props = column.props;
@@ -421,7 +421,6 @@ var TransitionTable = React.createClass({
       }));
     }
   },
-
   _transformColumnGroup: function _transformColumnGroup(group, tableProps, key, labels) {
     var _this = this;
 
@@ -448,7 +447,6 @@ var TransitionTable = React.createClass({
       columns
     );
   },
-
   _convertedColumns: function _convertedColumns(needsMigration) {
     var _this2 = this;
 
@@ -499,7 +497,6 @@ var TransitionTable = React.createClass({
       return child;
     });
   },
-
   render: function render() {
     var props = this.props;
     return React.createElement(

@@ -251,6 +251,11 @@ var FixedDataTable = React.createClass({
      * Whether a column is currently being resized.
      */
     isColumnResizing: PropTypes.bool,
+
+    /**
+     * Callback that is called when a maxScrollX/maxScrollY is changed.
+     */
+    onScrollStateChange: PropTypes.func,
   },
 
   getDefaultProps() /*object*/ {
@@ -354,6 +359,9 @@ var FixedDataTable = React.createClass({
 
   componentDidMount() {
     this._reportContentHeight();
+    if (this.props.onScrollStateChange) {
+      this.props.onScrollStateChange(this.state.maxScrollX, this.state.maxScrollY);
+    }
   },
 
   componentWillReceiveProps(/*object*/ nextProps) {
@@ -389,6 +397,9 @@ var FixedDataTable = React.createClass({
 
   componentDidUpdate() {
     this._reportContentHeight();
+    if (this.props.onScrollStateChange) {
+      this.props.onScrollStateChange(this.state.maxScrollX, this.state.maxScrollY);
+    }
   },
 
   render() /*object*/ {

@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -17,8 +19,6 @@
  * @param {number} max
  * @return {number}
  */
-"use strict";
-
 function clamp(value, min, max) {
   if (value < min) {
     return min;

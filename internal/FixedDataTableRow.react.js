@@ -28,8 +28,10 @@ var PropTypes = React.PropTypes;
  * This component should not be used directly by developer. Instead,
  * only <FixedDataTable /> should use the component internally.
  */
+
 var FixedDataTableRowImpl = React.createClass({
   displayName: 'FixedDataTableRowImpl',
+
 
   propTypes: {
 
@@ -150,7 +152,6 @@ var FixedDataTableRowImpl = React.createClass({
       )
     );
   },
-
   _getColumnsWidth: function _getColumnsWidth( /*array*/columns) /*number*/{
     var width = 0;
     for (var i = 0; i < columns.length; ++i) {
@@ -158,7 +159,6 @@ var FixedDataTableRowImpl = React.createClass({
     }
     return width;
   },
-
   _renderColumnsShadow: function _renderColumnsShadow( /*number*/left) /*?object*/{
     if (left > 0) {
       var className = cx({
@@ -174,23 +174,18 @@ var FixedDataTableRowImpl = React.createClass({
       return React.createElement('div', { className: className, style: style });
     }
   },
-
   _onClick: function _onClick( /*object*/event) {
     this.props.onClick(event, this.props.index);
   },
-
   _onDoubleClick: function _onDoubleClick( /*object*/event) {
     this.props.onDoubleClick(event, this.props.index);
   },
-
   _onMouseDown: function _onMouseDown( /*object*/event) {
     this.props.onMouseDown(event, this.props.index);
   },
-
   _onMouseEnter: function _onMouseEnter( /*object*/event) {
     this.props.onMouseEnter(event, this.props.index);
   },
-
   _onMouseLeave: function _onMouseLeave( /*object*/event) {
     this.props.onMouseLeave(event, this.props.index);
   }
@@ -198,6 +193,7 @@ var FixedDataTableRowImpl = React.createClass({
 
 var FixedDataTableRow = React.createClass({
   displayName: 'FixedDataTableRow',
+
 
   propTypes: {
 

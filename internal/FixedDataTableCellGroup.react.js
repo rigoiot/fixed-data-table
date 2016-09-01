@@ -25,10 +25,12 @@ var translateDOMPositionXY = require('./translateDOMPositionXY');
 
 var PropTypes = React.PropTypes;
 
+
 var DIR_SIGN = FixedDataTableHelper.DIR_SIGN;
 
 var FixedDataTableCellGroupImpl = React.createClass({
   displayName: 'FixedDataTableCellGroupImpl',
+
 
   /**
    * PropTypes are disabled in this component, because having them on slows
@@ -90,7 +92,6 @@ var FixedDataTableCellGroupImpl = React.createClass({
       cells
     );
   },
-
   _renderCell: function _renderCell(
   /*number*/rowIndex,
   /*number*/height,
@@ -119,7 +120,6 @@ var FixedDataTableCellGroupImpl = React.createClass({
       cell: columnProps.cell
     });
   },
-
   _getColumnsWidth: function _getColumnsWidth( /*array*/columns) /*number*/{
     var width = 0;
     for (var i = 0; i < columns.length; ++i) {
@@ -131,6 +131,7 @@ var FixedDataTableCellGroupImpl = React.createClass({
 
 var FixedDataTableCellGroup = React.createClass({
   displayName: 'FixedDataTableCellGroup',
+
 
   /**
    * PropTypes are disabled in this component, because having them on slows
@@ -157,13 +158,11 @@ var FixedDataTableCellGroup = React.createClass({
   shouldComponentUpdate: function shouldComponentUpdate( /*object*/nextProps) /*boolean*/{
     return !nextProps.isScrolling || this.props.rowIndex !== nextProps.rowIndex || this.props.left !== nextProps.left;
   },
-
   getDefaultProps: function getDefaultProps() /*object*/{
     return {
       offsetLeft: 0
     };
   },
-
   render: function render() /*object*/{
     var _props = this.props;
     var offsetLeft = _props.offsetLeft;
@@ -192,7 +191,6 @@ var FixedDataTableCellGroup = React.createClass({
       }))
     );
   },
-
   _onColumnResize: function _onColumnResize(
   /*number*/left,
   /*number*/width,

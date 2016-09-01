@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -8,8 +10,6 @@
  *
  * @providesModule requestAnimationFramePolyfill
  */
-
-'use strict';
 
 var emptyFunction = require('./emptyFunction');
 var nativeRequestAnimationFrame = require('./nativeRequestAnimationFrame');

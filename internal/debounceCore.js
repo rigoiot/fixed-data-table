@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -36,8 +38,6 @@
   * @param {?function} clearTimeoutFunc - an implementation of clearTimeout
  *  if nothing is passed in the default clearTimeout function is used
  */
-"use strict";
-
 function debounce(func, wait, context, setTimeoutFunc, clearTimeoutFunc) {
   setTimeoutFunc = setTimeoutFunc || setTimeout;
   clearTimeoutFunc = clearTimeoutFunc || clearTimeout;

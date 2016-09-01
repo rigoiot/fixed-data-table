@@ -12,6 +12,7 @@
 "use strict";
 
 // Hard code this for now.
+
 var Locale = {
   isRTL: function isRTL() {
     return false;

@@ -19,21 +19,20 @@
 
 'use strict';
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var EventListener = require('./EventListener');
 
 var cancelAnimationFramePolyfill = require('./cancelAnimationFramePolyfill');
 var requestAnimationFramePolyfill = require('./requestAnimationFramePolyfill');
 
-var DOMMouseMoveTracker = (function () {
+var DOMMouseMoveTracker = function () {
   /**
    * onMove is the callback that will be called on every mouse move.
    * onMoveEnd is called on mouse up when movement has ended.
    */
-
   function DOMMouseMoveTracker(
   /*function*/onMove,
   /*function*/onMoveEnd,
@@ -57,6 +56,7 @@ var DOMMouseMoveTracker = (function () {
    * in order to grab inital state.
    */
 
+
   _createClass(DOMMouseMoveTracker, [{
     key: 'captureMouseMoves',
     value: function captureMouseMoves( /*object*/event) {
@@ -78,6 +78,7 @@ var DOMMouseMoveTracker = (function () {
     /**
      * These releases all of the listeners on document.body.
      */
+
   }, {
     key: 'releaseMouseMoves',
     value: function releaseMouseMoves() {
@@ -103,6 +104,7 @@ var DOMMouseMoveTracker = (function () {
     /**
      * Returns whether or not if the mouse movement is being tracked.
      */
+
   }, {
     key: 'isDragging',
     value: function isDragging() /*boolean*/{
@@ -112,6 +114,7 @@ var DOMMouseMoveTracker = (function () {
     /**
      * Calls onMove passed into constructor and updates internal state.
      */
+
   }, {
     key: '_onMouseMove',
     value: function _onMouseMove( /*object*/event) {
@@ -143,6 +146,7 @@ var DOMMouseMoveTracker = (function () {
     /**
      * Calls onMoveEnd passed into constructor and updates internal state.
      */
+
   }, {
     key: '_onMouseUp',
     value: function _onMouseUp() {
@@ -154,6 +158,6 @@ var DOMMouseMoveTracker = (function () {
   }]);
 
   return DOMMouseMoveTracker;
-})();
+}();
 
 module.exports = DOMMouseMoveTracker;

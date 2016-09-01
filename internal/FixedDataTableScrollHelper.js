@@ -12,9 +12,9 @@
 
 'use strict';
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var PrefixIntervalTree = require('./PrefixIntervalTree');
 var clamp = require('./clamp');
@@ -27,7 +27,7 @@ var NO_ROWS_SCROLL_RESULT = {
   contentHeight: 0
 };
 
-var FixedDataTableScrollHelper = (function () {
+var FixedDataTableScrollHelper = function () {
   function FixedDataTableScrollHelper(
   /*number*/rowCount,
   /*number*/defaultRowHeight,
@@ -261,6 +261,7 @@ var FixedDataTableScrollHelper = (function () {
      * Allows to scroll to selected row with specified offset. It always
      * brings that row to top of viewport with that offset
      */
+
   }, {
     key: 'scrollToRow',
     value: function scrollToRow( /*number*/rowIndex, /*number*/offset) /*object*/{
@@ -278,6 +279,7 @@ var FixedDataTableScrollHelper = (function () {
      * below end of viewport, it will be scrolled up to be fully visible on the
      * bottom of viewport.
      */
+
   }, {
     key: 'scrollRowIntoView',
     value: function scrollRowIntoView( /*number*/rowIndex) /*object*/{
@@ -295,6 +297,6 @@ var FixedDataTableScrollHelper = (function () {
   }]);
 
   return FixedDataTableScrollHelper;
-})();
+}();
 
 module.exports = FixedDataTableScrollHelper;

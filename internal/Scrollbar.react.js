@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -9,8 +11,6 @@
  * @providesModule Scrollbar.react
  * @typechecks
  */
-
-'use strict';
 
 var DOMMouseMoveTracker = require('./DOMMouseMoveTracker');
 var Keys = require('./Keys');
@@ -25,6 +25,7 @@ var emptyFunction = require('./emptyFunction');
 var translateDOMPositionXY = require('./translateDOMPositionXY');
 
 var PropTypes = React.PropTypes;
+
 
 var UNSCROLLABLE_STATE = {
   position: 0,
@@ -60,7 +61,6 @@ var Scrollbar = React.createClass({
     var props = this.props;
     return this._calculateState(props.position || props.defaultPosition || 0, props.size, props.contentSize, props.orientation);
   },
-
   componentWillReceiveProps: function componentWillReceiveProps( /*object*/nextProps) {
     var controlledPosition = nextProps.position;
     if (controlledPosition === undefined) {
@@ -69,7 +69,6 @@ var Scrollbar = React.createClass({
       this._setNextState(this._calculateState(controlledPosition, nextProps.size, nextProps.contentSize, nextProps.orientation), nextProps);
     }
   },
-
   getDefaultProps: function getDefaultProps() /*object*/{
     return {
       defaultPosition: 0,
@@ -79,7 +78,6 @@ var Scrollbar = React.createClass({
       zIndex: 99
     };
   },
-
   render: function render() /*?object*/{
     if (!this.state.scrollable) {
       return null;
@@ -157,7 +155,6 @@ var Scrollbar = React.createClass({
       })
     );
   },
-
   componentWillMount: function componentWillMount() {
     var isHorizontal = this.props.orientation === 'horizontal';
     var onWheel = isHorizontal ? this._onWheelX : this._onWheelY;
@@ -166,7 +163,6 @@ var Scrollbar = React.createClass({
     this._shouldHandleY // Should handle vertical scroll
     );
   },
-
   componentDidMount: function componentDidMount() {
     this._mouseMoveTracker = new DOMMouseMoveTracker(this._onMouseMove, this._onMouseMoveEnd, document.documentElement);
 
@@ -174,7 +170,6 @@ var Scrollbar = React.createClass({
       this._didScroll();
     }
   },
-
   componentWillUnmount: function componentWillUnmount() {
     this._nextState = null;
     this._mouseMoveTracker.releaseMouseMoves();
@@ -183,24 +178,19 @@ var Scrollbar = React.createClass({
     }
     delete this._mouseMoveTracker;
   },
-
   scrollBy: function scrollBy( /*number*/delta) {
     this._onWheel(delta);
   },
-
   _shouldHandleX: function _shouldHandleX( /*number*/delta) /*boolean*/{
     return this.props.orientation === 'horizontal' ? this._shouldHandleChange(delta) : false;
   },
-
   _shouldHandleY: function _shouldHandleY( /*number*/delta) /*boolean*/{
     return this.props.orientation !== 'horizontal' ? this._shouldHandleChange(delta) : false;
   },
-
   _shouldHandleChange: function _shouldHandleChange( /*number*/delta) /*boolean*/{
     var nextState = this._calculateState(this.state.position + delta, this.props.size, this.props.contentSize, this.props.orientation);
     return nextState.position !== this.state.position;
   },
-
   _calculateState: function _calculateState(
   /*number*/position,
   /*number*/size,
@@ -257,15 +247,12 @@ var Scrollbar = React.createClass({
     this._stateForKey = state;
     return state;
   },
-
   _onWheelY: function _onWheelY( /*number*/deltaX, /*number*/deltaY) {
     this._onWheel(deltaY);
   },
-
   _onWheelX: function _onWheelX( /*number*/deltaX, /*number*/deltaY) {
     this._onWheel(deltaX);
   },
-
   _onWheel: function _onWheel( /*number*/delta) {
     var props = this.props;
 
@@ -273,7 +260,6 @@ var Scrollbar = React.createClass({
     // Use `requestAnimationFrame` to avoid over-updating.
     this._setNextState(this._calculateState(this.state.position + delta, props.size, props.contentSize, props.orientation));
   },
-
   _onMouseDown: function _onMouseDown( /*object*/event) {
     var nextState;
 
@@ -299,7 +285,6 @@ var Scrollbar = React.createClass({
     // Focus the node so it may receive keyboard event.
     ReactDOM.findDOMNode(this).focus();
   },
-
   _onMouseMove: function _onMouseMove( /*number*/deltaX, /*number*/deltaY) {
     var props = this.props;
     var delta = this.state.isHorizontal ? deltaX : deltaY;
@@ -307,13 +292,11 @@ var Scrollbar = React.createClass({
 
     this._setNextState(this._calculateState(this.state.position + delta, props.size, props.contentSize, props.orientation));
   },
-
   _onMouseMoveEnd: function _onMouseMoveEnd() {
     this._nextState = null;
     this._mouseMoveTracker.releaseMouseMoves();
     this.setState({ isDragging: false });
   },
-
   _onKeyDown: function _onKeyDown( /*object*/event) {
     var keyCode = event.keyCode;
 
@@ -388,19 +371,16 @@ var Scrollbar = React.createClass({
     var props = this.props;
     this._setNextState(this._calculateState(this.state.position + distance * direction, props.size, props.contentSize, props.orientation));
   },
-
   _onFocus: function _onFocus() {
     this.setState({
       focused: true
     });
   },
-
   _onBlur: function _onBlur() {
     this.setState({
       focused: false
     });
   },
-
   _blur: function _blur() {
     if (this.isMounted()) {
       try {
@@ -411,7 +391,6 @@ var Scrollbar = React.createClass({
       }
     }
   },
-
   _setNextState: function _setNextState( /*object*/nextState, /*?object*/props) {
     props = props || this.props;
     var controlledPosition = props.position;
@@ -435,7 +414,6 @@ var Scrollbar = React.createClass({
       _lastScrolledScrollbar = this;
     }
   },
-
   _didScroll: function _didScroll() {
     this.props.onScroll(this.state.position);
   }

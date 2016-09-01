@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -13,8 +15,6 @@
  * Here is the native and polyfill version of cancelAnimationFrame.
  * Please don't use it directly and use cancelAnimationFrame module instead.
  */
-"use strict";
-
 var cancelAnimationFrame = global.cancelAnimationFrame || global.webkitCancelAnimationFrame || global.mozCancelAnimationFrame || global.oCancelAnimationFrame || global.msCancelAnimationFrame || global.clearTimeout;
 
 module.exports = cancelAnimationFrame;

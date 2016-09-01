@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -10,8 +12,6 @@
  * @typechecks
  */
 
-'use strict';
-
 var React = require('./React');
 var FixedDataTableRowBuffer = require('./FixedDataTableRowBuffer');
 var FixedDataTableRow = require('./FixedDataTableRow.react');
@@ -23,8 +23,10 @@ var translateDOMPositionXY = require('./translateDOMPositionXY');
 
 var PropTypes = React.PropTypes;
 
+
 var FixedDataTableBufferedRows = React.createClass({
   displayName: 'FixedDataTableBufferedRows',
+
 
   propTypes: {
     isScrolling: PropTypes.bool,
@@ -55,15 +57,12 @@ var FixedDataTableBufferedRows = React.createClass({
       rowsToRender: this._rowBuffer.getRows(this.props.firstRowIndex, this.props.firstRowOffset)
     };
   },
-
   componentWillMount: function componentWillMount() {
     this._staticRowArray = [];
   },
-
   componentDidMount: function componentDidMount() {
     setTimeout(this._updateBuffer, 1000);
   },
-
   componentWillReceiveProps: function componentWillReceiveProps( /*object*/nextProps) {
     if (nextProps.rowsCount !== this.props.rowsCount || nextProps.defaultRowHeight !== this.props.defaultRowHeight || nextProps.height !== this.props.height) {
       this._rowBuffer = new FixedDataTableRowBuffer(nextProps.rowsCount, nextProps.defaultRowHeight, nextProps.height, this._getRowHeight);
@@ -76,7 +75,6 @@ var FixedDataTableBufferedRows = React.createClass({
       });
     }
   },
-
   _updateBuffer: function _updateBuffer() {
     if (this.isMounted()) {
       this.setState({
@@ -84,16 +82,13 @@ var FixedDataTableBufferedRows = React.createClass({
       });
     }
   },
-
   shouldComponentUpdate: function shouldComponentUpdate() /*boolean*/{
     // Don't add PureRenderMixin to this component please.
     return true;
   },
-
   componentWillUnmount: function componentWillUnmount() {
     this._staticRowArray.length = 0;
   },
-
   render: function render() /*object*/{
     var props = this.props;
     var rowClassNameGetter = props.rowClassNameGetter || emptyFunction;
@@ -146,7 +141,6 @@ var FixedDataTableBufferedRows = React.createClass({
       this._staticRowArray
     );
   },
-
   _getRowHeight: function _getRowHeight( /*number*/index) /*number*/{
     return this.props.rowHeightGetter ? this.props.rowHeightGetter(index) : this.props.defaultRowHeight;
   }
